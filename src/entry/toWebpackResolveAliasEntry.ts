@@ -1,3 +1,4 @@
+import { toArrayOrValue } from '@src/utils/toArrayOrValue';
 // "@constants/*": ["./src/constants/*"],
 // "@constants": ["./src/constants/index.ts"],
 // alias: {
@@ -25,7 +26,7 @@ const valueMap = (value: string): string => (path.resolve(
 const mapEntryValue = (entry: TsConfigPathEntry): string | string[] => {
   const mapped = entry[1].map(valueMap);
 
-  return mapped.length === 1 ? String(mapped.pop()) : mapped;
+  return toArrayOrValue(mapped);
 };
 
 export function toWebpackResolveAliasEntry(entry: TsConfigPathEntry): WebpackResolveAliasEntry {
