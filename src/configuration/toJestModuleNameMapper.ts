@@ -1,4 +1,4 @@
-import { toJestModuleNameMapperEntry } from '@src/mapper/toJestModuleNameMapperEntry';
+import { toJestModuleNameMapperEntry } from '@src/entry/toJestModuleNameMapperEntry';
 
 /**
  * Parse a set of TS Config path entries to a Jest config.moduleNameMapper object.

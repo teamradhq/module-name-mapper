@@ -1,6 +1,6 @@
-import { toJestModuleNameMapperEntry } from '@src/mapper/toJestModuleNameMapperEntry';
+import { toJestModuleNameMapperEntry } from '@src/entry/toJestModuleNameMapperEntry';
 
-describe('mapper.toJestModuleNameMapperEntry', () =>{
+describe('entry.toJestModuleNameMapperEntry', () =>{
   it('should parse module alias to jest format', () => {
     expect.hasAssertions();
 
