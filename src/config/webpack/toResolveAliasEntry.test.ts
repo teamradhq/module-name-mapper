@@ -1,10 +1,10 @@
-import { toWebpackResolveAliasEntry } from '@src/entry/toWebpackResolveAliasEntry';
+import { toResolveAliasEntry } from '@src/config/webpack/toResolveAliasEntry';
 
 import path from 'path';
 jest.mock('path');
 const mockPathResolve = jest.mocked(path.resolve);
 
-describe('entry.toWebpackResolveAliasEntry', () => {
+describe('entry.toResolveAliasEntry', () => {
   beforeEach(() => {
     mockPathResolve.mockClear()
       .mockImplementation((...args) => (
@@ -15,7 +15,7 @@ describe('entry.toWebpackResolveAliasEntry', () => {
   it('should map key to webpack resolve format', () => {
     expect.hasAssertions();
 
-    const [result] = toWebpackResolveAliasEntry([
+    const [result] = toResolveAliasEntry([
       '@constants/*',
       ['./src/constants/*'],
     ]);
@@ -26,7 +26,7 @@ describe('entry.toWebpackResolveAliasEntry', () => {
   it('should use path.resolve to map module paths', () => {
     expect.hasAssertions();
 
-    toWebpackResolveAliasEntry([
+    toResolveAliasEntry([
       '@constants/*',
       ['./src/constants/*'],
     ]);
@@ -37,7 +37,7 @@ describe('entry.toWebpackResolveAliasEntry', () => {
   it('should map single path to string', () => {
     expect.hasAssertions();
 
-    const [, result] = toWebpackResolveAliasEntry([
+    const [, result] = toResolveAliasEntry([
       '@constants/*',
       ['./src/constants/*'],
     ]);
@@ -48,7 +48,7 @@ describe('entry.toWebpackResolveAliasEntry', () => {
   it('should map multiple paths to string array', () => {
     expect.hasAssertions();
 
-    const [, result] = toWebpackResolveAliasEntry([
+    const [, result] = toResolveAliasEntry([
       '@constants/*',
       ['./src/constants/*', 'tmp/constants/*'],
     ]);

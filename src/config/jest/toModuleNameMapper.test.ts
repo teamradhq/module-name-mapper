@@ -1,10 +1,10 @@
-import { toJestModuleNameMapper } from '@src/configuration/toJestModuleNameMapper';
+import { toModuleNameMapper } from '@src/config/jest/toModuleNameMapper';
 
-import { toJestModuleNameMapperEntry } from '@src/entry/toJestModuleNameMapperEntry';
-jest.mock('@src/entry/toJestModuleNameMapperEntry');
-const mockToJestModuleNameMapperEntry = jest.mocked(toJestModuleNameMapperEntry);
+import { toModuleNameMapperEntry } from '@src/config/jest/toModuleNameMapperEntry';
+jest.mock('@src/entry/toModuleNameMapperEntry');
+const mockToJestModuleNameMapperEntry = jest.mocked(toModuleNameMapperEntry);
 
-describe('entry.toJestModuleNameMapper', () =>{
+describe('entry.toModuleNameMapper', () =>{
   beforeEach(() => {
     mockToJestModuleNameMapperEntry.mockClear()
       .mockImplementation((val) => val);
@@ -13,7 +13,7 @@ describe('entry.toJestModuleNameMapper', () =>{
   it('should map entries with entry function', () => {
     expect.hasAssertions();
 
-    toJestModuleNameMapper([
+    toModuleNameMapper([
       ['foo', ['bar']],
     ]);
 
@@ -27,7 +27,7 @@ describe('entry.toJestModuleNameMapper', () =>{
   it('should create object from mapped entries', () => {
     expect.hasAssertions();
 
-    const result = toJestModuleNameMapper([
+    const result = toModuleNameMapper([
       ['foo', ['bar']],
     ]);
 

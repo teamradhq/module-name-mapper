@@ -1,10 +1,10 @@
-import { toJestModuleNameMapperEntry } from '@src/entry/toJestModuleNameMapperEntry';
+import { toModuleNameMapperEntry } from '@src/config/jest/toModuleNameMapperEntry';
 
-describe('entry.toJestModuleNameMapperEntry', () =>{
+describe('entry.toModuleNameMapperEntry', () =>{
   it('should parse module alias to jest format', () => {
     expect.hasAssertions();
 
-    const [result] = toJestModuleNameMapperEntry([
+    const [result] = toModuleNameMapperEntry([
       '@constants/*',
       ['./src/constants/*'],
     ]);
@@ -15,7 +15,7 @@ describe('entry.toJestModuleNameMapperEntry', () =>{
   it('should parse module paths to jest format', () => {
     expect.hasAssertions();
 
-    const [, result] = toJestModuleNameMapperEntry([
+    const [, result] = toModuleNameMapperEntry([
       '@constants/*',
       ['./src/constants/*'],
     ]);
@@ -26,7 +26,7 @@ describe('entry.toJestModuleNameMapperEntry', () =>{
   it('should map multiple module paths to array', () => {
     expect.hasAssertions();
 
-    const result = toJestModuleNameMapperEntry([
+    const result = toModuleNameMapperEntry([
       '@constants/*',
       [
         './src/constants/*',

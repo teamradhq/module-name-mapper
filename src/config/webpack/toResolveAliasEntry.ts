@@ -29,7 +29,7 @@ function valueMap(value: string): string {
  *
  * @param entry
  */
-export function toWebpackResolveAliasEntry(entry: TsConfigPathEntry): WebpackResolveAliasEntry {
+export function toResolveAliasEntry(entry: TsConfigPathEntry): WebpackResolveAliasEntry {
   return [
     mapEntryKey(entry),
     mapEntryValue(entry, valueMap),
