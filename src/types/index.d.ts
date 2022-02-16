@@ -13,8 +13,13 @@ type TsConfig = {
   },
 };
 
-type JestModuleEntry = [
+type JestModuleNameMapperEntry = [
   string,
   string | string[],
 ];
+
+type JestModuleNameMapper = {
+  [key: string]: string | string[],
+};
+
 

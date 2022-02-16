@@ -19,7 +19,7 @@ const mapEntryValue = (entry: TsConfigPathEntry): string | string[] => {
  *
  * @param entry
  */
-export function toJestModuleName(entry: TsConfigPathEntry): JestModuleEntry {
+export function toJestModuleNameMapperEntry(entry: TsConfigPathEntry): JestModuleNameMapperEntry {
 
   return [
     mapEntryKey(entry),

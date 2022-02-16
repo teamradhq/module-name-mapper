@@ -1,1 +1,2 @@
-export * from './toJestModuleName';
+export * from './toJestModuleNameMapper';
+export * from './toJestModuleNameMapperEntry';
