@@ -1,38 +1,37 @@
-import { toArrayOrValue } from '@src/utils/toArrayOrValue';
-// "@constants/*": ["./src/constants/*"],
-// "@constants": ["./src/constants/index.ts"],
-// alias: {
-//   '@src': path.resolve('src'),
-//   '@constants': path.resolve('src/constants'),
-//   '@utils': path.resolve('src/utils'),
-// },
-
-// WebpackResolveAliasEntry
-// WebpacConfigResolveAlias
 import path from 'path';
+import { mapEntryValue } from '@src/utils/mapEntryValue';
 
+/**
+ * Remove special characters from the end of `entry` key.
+ *
+ * @param entry
+ */
+function mapEntryKey(entry: TsConfigPathEntry): string {
+  return entry[0].replace(/\/\*$/, '');
+}
 
-const mapEntryKey = (entry: TsConfigPathEntry): string => (
-  entry[0].replace(/\/\*$/, '')
-);
+/**
+ * Remove special characters from start of module `value`
+ * and resolve to a complete path.
+ *
+ * @param value
+ */
+function valueMap(value: string): string {
+  return (path.resolve(
+    value
+      .replace(/^[/.\\*]*/, '')
+      .replace(/[/\\*.]*$/, '')
+  ));
+}
 
-
-const valueMap = (value: string): string => (path.resolve(
-  value
-    .replace(/^[/.\\*]*/, '')
-    .replace(/[/\\*.]*$/, '')
-));
-
-const mapEntryValue = (entry: TsConfigPathEntry): string | string[] => {
-  const mapped = entry[1].map(valueMap);
-
-  return toArrayOrValue(mapped);
-};
-
+/**
+ * Yield an entry for a webpack `config.resolve.alias`.
+ *
+ * @param entry
+ */
 export function toWebpackResolveAliasEntry(entry: TsConfigPathEntry): WebpackResolveAliasEntry {
-
   return [
     mapEntryKey(entry),
-    mapEntryValue(entry),
+    mapEntryValue(entry, valueMap),
   ];
 }
