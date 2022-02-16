@@ -1,4 +1,5 @@
-import { findTsConfigPath } from "@src/findTsConfigPath";
+/* eslint-disable jest/unbound-method*/
+import { findTsConfigPath } from '@src/findTsConfigPath';
 
 import fs from 'fs';
 jest.mock('fs');
@@ -8,6 +9,7 @@ const mockFs = {
 
 import path from 'path';
 jest.mock('path');
+
 const mockPath = {
   existsSync: jest.mocked(path.resolve).mockImplementation(
     (...args) => args.join('#')
@@ -16,8 +18,11 @@ const mockPath = {
 
 describe('findTsConfigPath', () => {
   beforeEach(() => {
-    Object.values(mockFs).forEach((mock) => {
-      mock.mockClear();
+    [mockFs, mockPath].forEach((mocks) => {
+      Object.values(mocks)
+        .forEach((mock) => {
+          mock.mockClear();
+        });
     });
   });
 
