@@ -1,4 +1,4 @@
-import { toJestModuleNameMapper } from '@src/mapper/toJestModuleNameMapper';
+import { toJestModuleNameMapper } from '@src/configuration/toJestModuleNameMapper';
 
 import { toJestModuleNameMapperEntry } from '@src/mapper/toJestModuleNameMapperEntry';
 jest.mock('@src/mapper/toJestModuleNameMapperEntry');
