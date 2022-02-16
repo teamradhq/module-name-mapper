@@ -5,7 +5,7 @@ import { toJestModuleNameMapperEntry } from '@src/entry/toJestModuleNameMapperEn
  *
  * @param entries
  */
-export function toJestModuleNameMapper(entries: TsConfigPathEntry[]): JestModuleNameMapper {
+export function toJestModuleNameMapper(entries: TsConfigPathEntry[]): JestConfigModuleNameMapper {
   return Object.fromEntries(entries.map(
     (entry) => toJestModuleNameMapperEntry(entry)
   ));

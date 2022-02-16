@@ -13,13 +13,20 @@ type TsConfig = {
   },
 };
 
-type JestModuleNameMapperEntry = [
+type BaseConfigEntry = [
   string,
   string | string[],
 ];
 
-type JestModuleNameMapper = {
+type BaseConfigObject = {
   [key: string]: string | string[],
 };
 
+type JestModuleNameMapperEntry = BaseConfigEntry;
+
+type JestConfigModuleNameMapper = BaseConfigObject;
+
+type WebpackResolveAliasEntry = BaseConfigEntry;
+
+type WebpacConfigResolveAlias = BaseConfigObject;
 
