@@ -28,5 +28,11 @@ type JestConfigModuleNameMapper = BaseConfigObject;
 
 type WebpackResolveAliasEntry = BaseConfigEntry;
 
-type WebpacConfigResolveAlias = BaseConfigObject;
+type WebpackConfigResolveAlias = BaseConfigObject;
 
+interface IConfigParser<ConfigType> {
+  readonly config: ConfigType
+}
+
+
+type KeyValueMapper = (value: string) => string;

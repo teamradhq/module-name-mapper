@@ -2,7 +2,7 @@ import { toArrayOrValue } from '@src/utils/toArrayOrValue';
 
 /**
  * Map a the values of a TS config path `entry` to a value or
- * array of values using the provided `mapper` function.
+ * array of values using the provided `valueMapper` function.
  *
  * @param entry
  * @param mapper
