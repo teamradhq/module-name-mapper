@@ -2,6 +2,9 @@ import fs from 'fs';
 
 import { findTsConfigPath } from '@src/findTsConfigPath';
 
+/**
+ * Try to parse tsconfig.json or yield an empty object.
+ */
 export function getTsConfig() {
   try {
     const filepath = findTsConfigPath();
